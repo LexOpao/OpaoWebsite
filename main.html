@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="top-bar">
+        <span>/ lopao@addu / </span>
+        <nav class="tab-list" aria-label="Site navigation">
+            <button class="tab-button is-active" type="button" data-page="home" aria-pressed="true">| Home |</button>
+            <button class="tab-button" type="button" data-page="assignment-01" aria-pressed="false">| Assignment 01 |</button>
+            <button class="tab-button" type="button" data-page="assignment-02" aria-pressed="false">| Assignment 02 |</button>
+            <button class="tab-button" type="button" data-page="assignment-03" aria-pressed="false">| Assignment 03 |</button>
+            <button class="tab-button" type="button" data-page="assignment-04" aria-pressed="false">| Assignment 04 |</button>
+        </nav>
+    </header>
+    <main class="content-box" aria-label="Page content">
+        <section class="page home-page" data-page="home" aria-label="Home">
+            <h1 class="welcome-message">Welcome</h1>
+        </section>
+        <section class="page assignment-page" data-page="assignment-01" aria-labelledby="assignment-title" hidden>
+            <h1 id="assignment-title">Assignment #1 - Conversion</h1>
+            <p>Convert between Celsius and Fahrenheit, or meters and feet.</p>
+            <form class="conversion-form">
+                <div class="form-field">
+                    <label for="conversion-value">Value</label>
+                    <input id="conversion-value" type="number" step="any" required>
+                </div>
+                <div class="form-field">
+                    <label for="conversion-type">Conversion</label>
+                    <select id="conversion-type">
+                        <option value="celsius-fahrenheit">Celsius to Fahrenheit</option>
+                        <option value="fahrenheit-celsius">Fahrenheit to Celsius</option>
+                        <option value="meters-feet">Meters to Feet</option>
+                        <option value="feet-meters">Feet to Meters</option>
+                    </select>
+                </div>
+                <button class="convert-button" type="submit">Convert</button>
+            </form>
+            <output class="conversion-result" id="conversion-result" aria-live="polite">Your result will appear here.</output>
+        </section>
+        <section class="page assignment-page tax-page" data-page="assignment-02" aria-labelledby="tax-title" hidden>
+            <h1 id="tax-title">Assignment #2 - Income Tax Calculator</h1>
+            <p>Enter your net taxable income to calculate the income tax.</p>
+            <form class="tax-form">
+                <div class="tax-input-row">
+                    <div class="form-field">
+                        <label for="taxable-income">Taxable Income (P)</label>
+                        <input id="taxable-income" type="number" min="0" step="any" required>
+                    </div>
+                    <button class="convert-button" type="submit">Calculate Tax</button>
+                </div>
+            </form>
+            <output class="conversion-result" id="tax-result" aria-live="polite">Your income tax will appear here.</output>
+
+            <div class="tax-table-wrap">
+                <table class="tax-table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Over</th>
+                            <th scope="col">But not over</th>
+                            <th scope="col">Basic tax + rate</th>
+                            <th scope="col">Example taxable income</th>
+                            <th scope="col">Income tax</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>—</td>
+                            <td>P250,000</td>
+                            <td>0%</td>
+                            <td>180,000.00</td>
+                            <td>0.00</td>
+                        </tr>
+                        <tr>
+                            <td>P250,000</td>
+                            <td>P400,000</td>
+                            <td>20% of excess over P250,000</td>
+                            <td>320,000.00</td>
+                            <td>14,000.00</td>
+                        </tr>
+                        <tr>
+                            <td>P400,000</td>
+                            <td>P800,000</td>
+                            <td>P30,000 + 25% of excess over P400,000</td>
+                            <td>520,000.00</td>
+                            <td>60,000.00</td>
+                        </tr>
+                        <tr>
+                            <td>P800,000</td>
+                            <td>P2,000,000</td>
+                            <td>P130,000 + 30% of excess over P800,000</td>
+                            <td>930,000.00</td>
+                            <td>169,000.00</td>
+                        </tr>
+                        <tr>
+                            <td>P2,000,000</td>
+                            <td>P8,000,000</td>
+                            <td>P490,000 + 32% of excess over P2,000,000</td>
+                            <td>2,400,000.00</td>
+                            <td>618,000.00</td>
+                        </tr>
+                        <tr>
+                            <td>P8,000,000</td>
+                            <td>—</td>
+                            <td>P2,410,000 + 35% of excess over P8,000,000</td>
+                            <td>10,000,000.00</td>
+                            <td>3,110,000.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="page assignment-page sequence-page" data-page="assignment-03" aria-labelledby="sequence-title" hidden>
+            <h1 id="sequence-title">Assignment #3 - Factorial, Sum, and Average</h1>
+            <p>Enter a whole number from 1 to 1,000.</p>
+            <form class="sequence-form">
+                <div class="form-field">
+                    <label for="natural-number">Number of natural numbers (N)</label>
+                    <input id="natural-number" type="number" min="1" max="1000" step="1" required>
+                </div>
+                <button class="convert-button" type="submit">Calculate</button>
+            </form>
+            <output class="sequence-error" id="sequence-error" aria-live="polite"></output>
+            <div class="sequence-results" aria-label="Results">
+                <section class="sequence-result">
+                    <h2>Factorial (while loop)</h2>
+                    <output id="factorial-result">—</output>
+                </section>
+                <section class="sequence-result">
+                    <h2>Sum (do while loop)</h2>
+                    <output id="sum-result">—</output>
+                </section>
+                <section class="sequence-result">
+                    <h2>Average (for loop)</h2>
+                    <output id="average-result">—</output>
+                </section>
+            </div>
+        </section>
+        <section class="page assignment-page payroll-page" data-page="assignment-04" aria-labelledby="payroll-title" hidden>
+            <h1 id="payroll-title">Assignment #4 - Employee Payroll</h1>
+            <p>Add employees to the payroll list or delete an employee by line number.</p>
+            <form class="employee-form">
+                <div class="employee-inputs">
+                    <div class="form-field">
+                        <label for="employee-name">Employee Name</label>
+                        <input id="employee-name" type="text" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="days-worked">Days Worked</label>
+                        <input id="days-worked" type="number" min="0" step="1" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="daily-rate">Daily Rate</label>
+                        <input id="daily-rate" type="number" min="0" step="0.01" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="deduction-amount">Deduction Amount</label>
+                        <input id="deduction-amount" type="number" min="0" step="0.01" required>
+                    </div>
+                </div>
+                <div class="employee-calculations">
+                    <div class="form-field">
+                        <label for="gross-preview">Gross Pay</label>
+                        <input id="gross-preview" type="number" step="0.01" readonly>
+                    </div>
+                    <div class="form-field">
+                        <label for="net-preview">Net Pay</label>
+                        <input id="net-preview" type="number" step="0.01" readonly>
+                    </div>
+                    <button class="convert-button" type="submit">Add Employee</button>
+                </div>
+            </form>
+            <output class="payroll-message" id="payroll-message" aria-live="polite"></output>
+
+            <form class="payroll-delete-form">
+                <div class="form-field">
+                    <label for="delete-line-number">Line Number to Delete</label>
+                    <input id="delete-line-number" type="number" min="1" step="1" required>
+                </div>
+                <button class="convert-button" type="submit">Delete Employee</button>
+            </form>
+
+            <div class="payroll-table-wrap">
+                <table class="payroll-table" id="payroll">
+                    <thead>
+                        <tr>
+                            <th scope="col">No.</th>
+                            <th scope="col">Employee Name</th>
+                            <th scope="col">Days Worked</th>
+                            <th scope="col">Daily Rate</th>
+                            <th scope="col">Gross Pay</th>
+                            <th scope="col">Deduction Amount</th>
+                            <th scope="col">Net Pay</th>
+                        </tr>
+                    </thead>
+                    <tbody id="payroll-list">
+                        <tr><td colspan="7">No employees in the payroll list.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <script>
+        var tabs = document.querySelectorAll(".tab-button");
+        var pages = document.querySelectorAll(".page");
+
+        for (var i = 0; i < tabs.length; i++) {
+            tabs[i].addEventListener("click", function () {
+                var pageName = this.getAttribute("data-page");
+
+                for (var j = 0; j < tabs.length; j++) {
+                    tabs[j].classList.remove("is-active");
+                    tabs[j].setAttribute("aria-pressed", "false");
+                }
+
+                this.classList.add("is-active");
+                this.setAttribute("aria-pressed", "true");
+
+                for (var j = 0; j < pages.length; j++) {
+                    pages[j].hidden = pages[j].getAttribute("data-page") !== pageName;
+                }
+            });
+        }
+
+        var conversionForm = document.querySelector(".conversion-form");
+        var conversionValue = document.querySelector("#conversion-value");
+        var conversionType = document.querySelector("#conversion-type");
+        var conversionResult = document.querySelector("#conversion-result");
+
+        conversionForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            var value = Number(conversionValue.value);
+            var result;
+            var unit;
+
+            if (conversionType.value === "celsius-fahrenheit") {
+                result = value * 9 / 5 + 32;
+                unit = "°F";
+            } else if (conversionType.value === "fahrenheit-celsius") {
+                result = (value - 32) * 5 / 9;
+                unit = "°C";
+            } else if (conversionType.value === "meters-feet") {
+                result = value * 3.28084;
+                unit = "ft";
+            } else {
+                result = value * 0.3048;
+                unit = "m";
+            }
+
+            var formattedResult = new Intl.NumberFormat(undefined, {
+                maximumFractionDigits: 2
+            }).format(result);
+            conversionResult.textContent = formattedResult + " " + unit;
+        });
+
+        var taxForm = document.querySelector(".tax-form");
+        var taxableIncome = document.querySelector("#taxable-income");
+        var taxResult = document.querySelector("#tax-result");
+
+        function calculateIncomeTax(income) {
+            if (income <= 250000) {
+                return 0;
+            } else if (income <= 400000) {
+                return (income - 250000) * 0.20;
+            } else if (income <= 800000) {
+                return 30000 + (income - 400000) * 0.25;
+            } else if (income <= 2000000) {
+                return 130000 + (income - 800000) * 0.30;
+            } else if (income <= 8000000) {
+                return 490000 + (income - 2000000) * 0.32;
+            } else {
+                return 2410000 + (income - 8000000) * 0.35;
+            }
+        }
+
+        taxForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            var income = Number(taxableIncome.value);
+
+            if (!Number.isFinite(income) || income < 0) {
+                taxResult.textContent = "Enter a valid taxable income.";
+                return;
+            }
+
+            var tax = calculateIncomeTax(income);
+            var formattedTax = new Intl.NumberFormat("en-PH", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            }).format(tax);
+            taxResult.textContent = "Income tax: P" + formattedTax;
+        });
+
+        var sequenceForm = document.querySelector(".sequence-form");
+        var naturalNumber = document.querySelector("#natural-number");
+        var factorialResult = document.querySelector("#factorial-result");
+        var sumResult = document.querySelector("#sum-result");
+        var averageResult = document.querySelector("#average-result");
+        var sequenceError = document.querySelector("#sequence-error");
+
+        sequenceForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            var n = Number(naturalNumber.value);
+
+            if (!Number.isInteger(n) || n < 1 || n > 1000) {
+                sequenceError.textContent = "Enter a whole number from 1 to 1,000.";
+                return;
+            }
+
+            sequenceError.textContent = "";
+
+            var factorial = BigInt(1);
+            var current = 1;
+            while (current <= n) {
+                factorial = factorial * BigInt(current);
+                current++;
+            }
+
+            var sum = 0;
+            current = 1;
+            do {
+                sum = sum + current;
+                current++;
+            } while (current <= n);
+
+            var average = 0;
+            for (var number = 1; number <= n; number++) {
+                average = average + number;
+            }
+            average = average / n;
+
+            var numberFormat = new Intl.NumberFormat("en-US");
+            factorialResult.textContent = numberFormat.format(factorial);
+            sumResult.textContent = numberFormat.format(sum);
+            averageResult.textContent = average.toFixed(2);
+        });
+
+        var employeeForm = document.querySelector(".employee-form");
+        var payrollDeleteForm = document.querySelector(".payroll-delete-form");
+        var payrollList = document.querySelector("#payroll-list");
+        var payrollMessage = document.querySelector("#payroll-message");
+        var employeeName = document.querySelector("#employee-name");
+        var daysWorkedInput = document.querySelector("#days-worked");
+        var dailyRateInput = document.querySelector("#daily-rate");
+        var deductionInput = document.querySelector("#deduction-amount");
+        var grossPreview = document.querySelector("#gross-preview");
+        var netPreview = document.querySelector("#net-preview");
+        var deleteLineNumber = document.querySelector("#delete-line-number");
+        var employees = [];
+
+        function calculatePayroll(daysWorked, dailyRate, deduction) {
+            var grossPay = daysWorked * dailyRate;
+            var netPay = grossPay - deduction;
+            return { grossPay: grossPay, netPay: netPay };
+        }
+
+        function updatePayrollPreview() {
+            var daysWorked = daysWorkedInput.value;
+            var dailyRate = dailyRateInput.value;
+            var deduction = deductionInput.value;
+
+            if (daysWorked === "" || dailyRate === "" || deduction === "") {
+                grossPreview.value = "";
+                netPreview.value = "";
+                return;
+            }
+
+            var pay = calculatePayroll(Number(daysWorked), Number(dailyRate), Number(deduction));
+            if (Number.isFinite(pay.grossPay) && Number.isFinite(pay.netPay)) {
+                grossPreview.value = pay.grossPay.toFixed(2);
+                netPreview.value = pay.netPay.toFixed(2);
+            } else {
+                grossPreview.value = "";
+                netPreview.value = "";
+            }
+        }
+
+        function formatPay(amount) {
+            return amount.toLocaleString("en-PH", {
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+        }
+
+        function renderPayroll() {
+            payrollList.textContent = "";
+
+            if (employees.length === 0) {
+                var emptyRow = payrollList.insertRow();
+                var emptyCell = emptyRow.insertCell();
+                emptyCell.colSpan = 7;
+                emptyCell.textContent = "No employees in the payroll list.";
+                return;
+            }
+
+            for (var i = 0; i < employees.length; i++) {
+                var employee = employees[i];
+                var row = payrollList.insertRow();
+                row.insertCell().textContent = i + 1;
+                row.insertCell().textContent = employee.name;
+                row.insertCell().textContent = employee.daysWorked;
+                row.insertCell().textContent = formatPay(employee.dailyRate);
+                row.insertCell().textContent = formatPay(employee.grossPay);
+                row.insertCell().textContent = formatPay(employee.deduction);
+                row.insertCell().textContent = formatPay(employee.netPay);
+            }
+        }
+
+        employeeForm.addEventListener("input", updatePayrollPreview);
+
+        employeeForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            var name = employeeName.value.trim();
+            var daysWorked = Number(daysWorkedInput.value);
+            var dailyRate = Number(dailyRateInput.value);
+            var deduction = Number(deductionInput.value);
+            var pay = calculatePayroll(daysWorked, dailyRate, deduction);
+
+            if (!name || !Number.isInteger(daysWorked) || daysWorked < 0 ||
+                !Number.isFinite(dailyRate) || dailyRate < 0 ||
+                !Number.isFinite(deduction) || deduction < 0 ||
+                !Number.isFinite(pay.grossPay) || !Number.isFinite(pay.netPay)) {
+                payrollMessage.textContent = "Enter valid employee and payroll values.";
+                return;
+            }
+
+            employees.push({
+                name: name,
+                daysWorked: daysWorked,
+                dailyRate: dailyRate,
+                deduction: deduction,
+                grossPay: pay.grossPay,
+                netPay: pay.netPay
+            });
+            renderPayroll();
+            employeeForm.reset();
+            updatePayrollPreview();
+            payrollMessage.textContent = name + " added to the payroll list.";
+        });
+
+        payrollDeleteForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+            var lineNumber = Number(deleteLineNumber.value);
+
+            if (!Number.isInteger(lineNumber) || lineNumber < 1 || lineNumber > employees.length) {
+                payrollMessage.textContent = "No employee exists on that line number.";
+                return;
+            }
+
+            var removedEmployee = employees[lineNumber - 1];
+            employees.splice(lineNumber - 1, 1);
+            renderPayroll();
+            payrollDeleteForm.reset();
+            payrollMessage.textContent = removedEmployee.name + " was deleted from the payroll list.";
+        });
+    </script>
+</body>
+</html>

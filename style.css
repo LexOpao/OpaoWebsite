@@ -1,0 +1,338 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background: #17141b url("resources/bg.png") center / cover no-repeat;
+}
+
+.top-bar,
+.content-box {
+    box-sizing: border-box;
+    width: calc(100% - 32px);
+    max-width: 1280px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgb(139, 113, 113);
+    border-radius: 8px;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(2px);
+}
+
+.top-bar {
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 24px auto 0;
+    padding: 6px 24px;
+    color: rgb(245, 217, 217);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    overflow-wrap: anywhere;
+}
+
+.content-box {
+    flex: 1;
+    min-height: 0;
+    margin: 70px auto;
+    padding: 16px;
+    overflow-y: auto;
+    color: rgb(245, 217, 217);
+    font-family: "JetBrains Mono", monospace;
+}
+
+.home-page {
+    display: grid;
+    height: 100%;
+    place-items: center;
+}
+
+.page[hidden] {
+    display: none;
+}
+
+.welcome-message {
+    margin: 0;
+    font-size: 64px;
+    letter-spacing: 8px;
+}
+
+.assignment-page {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.tax-page,
+.payroll-page {
+    max-width: 1100px;
+}
+
+.assignment-page h1 {
+    margin: 0 0 12px;
+    font-size: 28px;
+}
+
+.assignment-page p {
+    margin: 0 0 24px;
+    color: rgba(245, 217, 217, 0.75);
+}
+
+.conversion-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    align-items: end;
+    gap: 12px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 6px;
+}
+
+.form-field input,
+.form-field select,
+.convert-button {
+    box-sizing: border-box;
+    min-height: 40px;
+    padding: 8px 12px;
+    border: 1px solid rgb(139, 113, 113);
+    border-radius: 4px;
+    font: inherit;
+}
+
+.form-field input,
+.form-field select {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    color: inherit;
+}
+
+.form-field option {
+    background: #17141b;
+}
+
+.convert-button {
+    background: rgba(255, 255, 255, 0.08);
+    color: inherit;
+    cursor: pointer;
+}
+
+.convert-button:hover {
+    background: rgba(255, 255, 255, 0.16);
+}
+
+.conversion-result {
+    display: block;
+    margin-top: 24px;
+    font-size: 20px;
+}
+
+.tax-input-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 12px;
+    max-width: 600px;
+    margin-bottom: 16px;
+}
+
+.tax-table-wrap,
+.payroll-table-wrap {
+    overflow-x: auto;
+}
+
+.tax-table,
+.payroll-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+}
+
+.tax-table {
+    min-width: 750px;
+}
+
+.payroll-table {
+    min-width: 900px;
+}
+
+.tax-table th,
+.tax-table td,
+.payroll-table th,
+.payroll-table td {
+    padding: 10px 12px;
+    border: 1px solid rgba(139, 113, 113, 0.7);
+}
+
+.tax-table th,
+.payroll-table th {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.employee-inputs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: end;
+    gap: 12px;
+}
+
+.employee-calculations {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) auto;
+    align-items: end;
+    gap: 12px;
+    max-width: 760px;
+    margin-top: 12px;
+}
+
+.payroll-message {
+    display: block;
+    min-height: 20px;
+    margin-top: 12px;
+    color: rgba(245, 217, 217, 0.85);
+}
+
+.payroll-delete-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 12px;
+    max-width: 520px;
+    margin: 20px 0;
+}
+
+.sequence-page {
+    max-width: 900px;
+}
+
+.sequence-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 12px;
+    max-width: 600px;
+}
+
+.sequence-error {
+    display: block;
+    margin-top: 8px;
+    color: #ffb3b3;
+}
+
+.sequence-results {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.sequence-result {
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid rgba(139, 113, 113, 0.7);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.sequence-result h2 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+
+.sequence-result output {
+    display: block;
+    font-size: 20px;
+    overflow-wrap: anywhere;
+}
+
+.tab-list {
+    display: grid;
+    flex: 0 0 auto;
+    grid-template-columns: repeat(5, 160px);
+    gap: 4px;
+}
+
+.tab-button {
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 8px;
+    border: 1px solid transparent;
+    background: transparent;
+    color: rgba(245, 217, 217, 0.72);
+    font: inherit;
+    font-size: 13px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.tab-button:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ff6767;
+}
+
+.tab-button.is-active {
+    color: rgb(245, 217, 217);
+    box-shadow: inset 0 2px 0 rgb(245, 217, 217);
+}
+
+.tab-button:focus-visible {
+    outline: 2px solid rgb(245, 217, 217);
+    outline-offset: 2px;
+}
+
+@media (max-width: 1000px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tab-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .employee-inputs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .employee-calculations {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        max-width: none;
+    }
+
+    .employee-calculations .convert-button {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .conversion-form {
+        grid-template-columns: 1fr;
+    }
+
+    .tax-input-row {
+        grid-template-columns: 1fr;
+    }
+
+    .sequence-results {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-inputs,
+    .employee-calculations,
+    .payroll-delete-form {
+        grid-template-columns: 1fr;
+    }
+
+    .employee-calculations .convert-button {
+        grid-column: auto;
+    }
+
+    .assignment-page h1 {
+        font-size: 22px;
+    }
+}
